@@ -8,21 +8,22 @@ const getPairs = (students) => {
 
 
 const joinStudentNames = (students) => {
-    let kaka = [];
+    let studentsTasks = [];
     for(let i = 0; i < students.length; i++) {
-        kaka.push([students[i].join(" і ")]);
+        studentsTasks.push([students[i].join(" і ")]);
+        studentsTasks[i].push(THEMES[i]);
     }
-    return kaka;
+    return studentsTasks;
 }
+joinStudentNames(getPairs(STUDENTS));
+console.log(joinStudentNames(getPairs(STUDENTS)))
 
-const asignTask = () => {
-    let joinedStudents = joinStudentNames(getPairs(STUDENTS))
-    for(let i = 0; i < joinedStudents.length; i++) {
-        joinedStudents[i].push(THEMES[i]);
+const evaluetionStudents = (students) => {
+    let studentsMarks = [];
+    for(let i = 0; i < students.length; i++) {
+        studentsMarks.push([students[i], MARKS[i]]);
     }
-    console.log(joinedStudents);
+    return studentsMarks;
 }
-
-asignTask();
-
-
+evaluetionStudents(STUDENTS);
+console.log(evaluetionStudents(STUDENTS));
